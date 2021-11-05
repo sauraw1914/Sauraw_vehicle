@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e04367f483.js" crossorigin="anonymous"></script>
+    <title>Add Vehicles</title>
+</head>
+<body>
+    
+      
+    <div class="wrapper">
+        <div class="sidebar">
+            <img src="{% static 'logo.png' %}" alt="">
+            
+            <ul>
+                <li> <a href="{% url 'vehicleview'%}"><i class="fas fa-tachometer-alt"></i>  Dashboard</a></li>
+                <li></i><a href="{% url 'addvehicle'%}"><i class="fas fa-plus"></i>  Add Vehicles</a></li>
+                <li><a href="{% url 'update'%}"><i class="fas fa-edit"></i> Edit Vehicles</a></li>
+                <li><a href="{% url 'listvehicle'%}"><i class="fas fa-list-ul"></i>  List Vehicles</a></li>
+            </ul>
+           
+        
+        </div>
+        
+
+    </div>
+    <div class="header">
+        <h1>Add Sauraw_Vehicle</h1>
+        <h2>We have to add more vehicle</h2>
+    </div>
+    
+    
+        
+        <div class="contain">
+          
+                <form method ="POST" action="">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="field">
+                      {{ field}}
+                    </div>
+                    {% endfor %}
+                     
+                   <input type ="submit" value="Add Vehicle" class="button"> 
+                </form>
+          
+               
+            
+            
+        </div>
+    
+       
+   
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e04367f483.js" crossorigin="anonymous"></script>
+    <title>Update</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <img src="{% static 'logo.png' %}" alt="">
+            
+            <ul>
+                <li> <a href="{% url 'vehicleview'%}"><i class="fas fa-tachometer-alt"></i>  Dashboard</a></li>
+                <li></i><a href="{% url 'addvehicle'%}"><i class="fas fa-plus"></i>  Add Vehicles</a></li>
+                <li><a href="{% url 'update'%}"><i class="fas fa-edit"></i> Edit Vehicles</a></li>
+                <li><a href="{% url 'listvehicle'%}"><i class="fas fa-list-ul"></i>  List Vehicles</a></li>
+            </ul>
+           
+        
+        </div>
+
+    </div>
+    <div class="header">
+        <h1>Update Sauraw_Vehicle</h1>
+    </div>
+  <div class="table-container">
+     <center><h1>Select The Vehicle To Update</h1></center> 
+    <table class="content-table">
+        <thead>
+        <tr>
+            <th >Name</th>
+            <th >Camera 1</th>
+            <th >Camera 2</th>
+            <th >Static map</th>
+            <th >Speed</th>
+            <th >Average Speed</th>
+            <th >Temperature</th>
+            <th >Energy Status</th>
+            <th >Fuel Level</th>
+            <th >Edit</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr >
+            {% for Vehicle in vehicles %}
+            <tr>
+            <td > {{Vehicle.name}}  </td>
+            <td >{{Vehicle.camera1}}</td>
+            <td >{{Vehicle.camera2}}</td>
+            <td >{{Vehicle.staticmap}}</td>
+            <td >{{Vehicle.speed}}</td>
+            <td >{{Vehicle.avgspeed}}</td>
+            <td >{{Vehicle.temperature}}</td>
+            <td >{{Vehicle.energystatus}}</td>
+            <td >{{Vehicle.fuellevel}}</td>
+            
+            <td> <a class="edit-btn " href="{% url 'updatevehicle' Vehicle.id %}" >Edit</a></td>
+            
+          </tr>
+            
+            {% endfor%}
+            
+        </tr>
+    </tbody>
+       
+    </table>
+  </div>
+   
+</body>
+</html>
